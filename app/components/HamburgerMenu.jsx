@@ -191,7 +191,7 @@ const HamburgerMenu = () => {
             </a>
           </li>
           <li className="flex flex-col gap-4">
-            <a href="api-tester">
+            <a href="chatcompletions">
               <span>
                 <div className=" rounded-xl overflow-hidden h-40 w-32 drop-shadow">
                   <div className="absolute inset-0">
