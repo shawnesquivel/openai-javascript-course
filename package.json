@@ -1,0 +1,40 @@
+{
+  "name": "yt-script-generator",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@pinecone-database/pinecone": "^0.1.5",
+    "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "hnswlib-node": "^1.4.2",
+    "langchain": "^0.0.75",
+    "next": "13.4.1",
+    "openai": "^3.2.1",
+    "pdf-parse": "^1.1.1",
+    "postcss": "8.4.23",
+    "react": "18.2.0",
+    "react-burger-menu": "^3.0.9",
+    "react-dom": "18.2.0",
+    "serpapi": "^1.1.1",
+    "supports-color": "^9.3.1",
+    "tailwindcss": "3.3.2",
+    "youtube-transcript": "^1.0.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/node": "20.1.0",
+    "@types/react": "18.2.6",
+    "express-sse": "^0.5.3",
+    "typescript": "5.0.4"
+  }
+}
