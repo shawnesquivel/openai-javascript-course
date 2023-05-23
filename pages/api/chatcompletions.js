@@ -6,6 +6,8 @@ import { HumanChatMessage } from "langchain/schema";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     // Grab the user prompt
+    // console.log(process.env.OPENAI_API_KEY);
+    // console.log(process.env.SERPAPI_API_KEY);
 
     // Enter your code here
 
