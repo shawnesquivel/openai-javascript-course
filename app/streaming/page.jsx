@@ -10,6 +10,7 @@ import TwoColumnLayout from "app/components/TwoColumnLayout";
 const Streaming = () => {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(null);
+  const [data, setData] = useState(null)
 //   add code
 
   const processToken = (token) => {
