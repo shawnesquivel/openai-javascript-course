@@ -15,13 +15,6 @@ export default function handler(req, res) {
     // create the prompt
 
     // call frontend to backend
-    chat
-      .call(
-        `Create me a short rap about my name and city. Make it funny and punny. Name: ${input}`
-      )
-      .then(() => {
-        sse.send(null, "end");
-      });
 
     return res.status(200).json({ result: "OK" });
   } else if (req.method === "GET") {
