@@ -70,7 +70,6 @@ const ContentGenerator = () => {
       ]);
       setFirstMsg(false);
       setPrompt("");
-
       setError("");
     } catch (err) {
       console.error(err);

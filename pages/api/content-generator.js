@@ -7,12 +7,17 @@ import {
   HumanMessagePromptTemplate,
   SystemMessagePromptTemplate,
 } from "langchain/prompts";
+import extractVideoId from "../../utils/extractVideoId";
+import getVideoMetaData from "../../utils/getVideoMetaData";
+import ResearchAgent from "../../agents/ResearchAgent";
 
 // Global Variables
 
 // Initialize Chain with Data
 const initChain = async (transcript, metadataString, research, topic) => {
   try {
+    // do stuff
+
     return response;
   } catch (error) {
     console.error(
@@ -26,7 +31,10 @@ export default async function handler(req, res) {
   const { prompt, topic, firstMsg } = req.body;
   console.log(`Prompt: ${prompt} Topic: ${topic}`);
 
-  if (x) {
+  if (
+    chain === undefined &&
+    !prompt.includes("https://www.youtube.com/watch?v=")
+  ) {
     return res.status(400).json({
       error:
         "Chain not initialized. Please send a YouTube URL to initialize the chain.",
@@ -42,7 +50,7 @@ export default async function handler(req, res) {
   if (firstMsg) {
     console.log("Received URL");
     try {
-      // do stuff
+      // Initialize chain with transcript, metadata, research, and topic
 
       // return res.status(200).json({ output: research });
       return res.status(200).json({
@@ -62,8 +70,6 @@ export default async function handler(req, res) {
     // Very similar to previous section, don't worry too much about this just copy and paste it from the previous section!
     console.log("Received question");
     try {
-      const question = prompt;
-
       // do stuff
 
       // just make sure to modify this response as necessary.
