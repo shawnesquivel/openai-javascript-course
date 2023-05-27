@@ -37,7 +37,6 @@ const ContentGenerator = () => {
 
   // Make sure to change the API route
   const handleSubmit = async () => {
-    setPrompt("");
     try {
       // Push the user's message into the messages array
       setMessages((prevMessages) => [
@@ -70,6 +69,7 @@ const ContentGenerator = () => {
         },
       ]);
       setFirstMsg(false);
+      setPrompt("");
 
       setError("");
     } catch (err) {
