@@ -17,6 +17,12 @@ import { PineconeClient } from "@pinecone-database/pinecone";
 import { loadSummarizationChain } from "langchain/chains";
 import { OpenAI } from "langchain/llms/openai";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 export default async function handler(req, res) {
   // Grab the prompt from the url (?prompt=[value])
   //   console.log(process.env.PINECONE_API_KEY);

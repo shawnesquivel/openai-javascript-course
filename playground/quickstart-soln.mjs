@@ -9,6 +9,12 @@ import { BufferMemory } from "langchain/memory";
 import { ConversationChain } from "langchain/chains";
 import { PlanAndExecuteAgentExecutor } from "langchain/experimental/plan_and_execute";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 // First, run this in your terminal:
 
 // export OPENAI_API_KEY=sk-12345

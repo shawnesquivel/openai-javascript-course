@@ -7,6 +7,12 @@ import TwoColumnLayout from "../components/TwoColumnLayout";
 import ResultWithSources from "../components/ResultWithSources";
 import "../globals.css";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 const Memory = () => {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(null);

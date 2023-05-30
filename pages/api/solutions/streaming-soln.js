@@ -1,6 +1,12 @@
 import { OpenAI } from "langchain/llms/openai";
 import SSE from "express-sse";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 const sse = new SSE();
 
 export default function handler(req, res) {

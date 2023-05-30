@@ -9,24 +9,12 @@ import {
 import { AgentExecutor } from "langchain/agents";
 import SerpAPITool from "../tools/SerpAPI";
 import WebBrowserTool from "../tools/WebBrowser";
-// class CustomZeroShotAgent extends ZeroShotAgent {
-//   async returnStoppedResponse(
-//     earlyStoppingMethod,
-//     steps,
-//     inputs,
-//     callbackManager
-//   ) {
-//     // Get the last step in the steps array
-//     const lastStep = steps[steps.length - 1];
 
-//     // Return the output of the last step
-//     return Promise.resolve({
-//       returnValues: { output: lastStep.observation },
-//       log: "",
-//     });
-//   }
-// }
-
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
 const ResearchAgent = async (topic) => {
   console.log({ topic });
   try {

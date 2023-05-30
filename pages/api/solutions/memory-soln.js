@@ -3,6 +3,12 @@ import { OpenAI } from "langchain/llms/openai";
 import { BufferMemory } from "langchain/memory";
 import { ConversationChain } from "langchain/chains";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 let model;
 let memory;
 let chain;

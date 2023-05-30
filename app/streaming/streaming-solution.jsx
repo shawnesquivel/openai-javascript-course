@@ -6,7 +6,11 @@ import ResultStreaming from "../components/ResultStreaming";
 import Title from "../components/Title";
 import TwoColumnLayout from "app/components/TwoColumnLayout";
 
-// solution to app/streaming/page.jsx
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
 const Streaming = () => {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(null);

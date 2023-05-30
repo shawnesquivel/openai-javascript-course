@@ -12,6 +12,12 @@ import { OpenAI } from "langchain/llms/openai";
 import { VectorDBQAChain } from "langchain/chains";
 import { PromptTemplate } from "langchain/prompts";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 export default async function handler(req, res) {
   try {
     //    do stuff

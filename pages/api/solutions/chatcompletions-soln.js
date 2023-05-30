@@ -1,6 +1,12 @@
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { HumanChatMessage, SystemChatMessage } from "langchain/schema";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 const chat = new ChatOpenAI({ temperature: 0, modelName: "gpt-3.5-turbo" });
 
 export default async function handler(req, res) {

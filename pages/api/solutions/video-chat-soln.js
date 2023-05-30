@@ -6,6 +6,12 @@ import { HNSWLib } from "langchain/vectorstores/hnswlib";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { CharacterTextSplitter } from "langchain/text_splitter";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 // First, we'll initialize the chain and the chat history so that they can be preserved on multiple calls to the API
 let chain;
 // Remember, the chat history is where we store each human/chatbot message.

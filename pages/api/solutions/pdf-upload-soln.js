@@ -5,6 +5,12 @@ import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { PineconeStore } from "langchain/vectorstores/pinecone";
 import { CharacterTextSplitter } from "langchain/text_splitter";
 
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
 // Example: https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/pdf
 
 /**

@@ -5,14 +5,18 @@ import extractVideoId from "../../utils/extractVideoId";
 import getVideoMetaData from "../../utils/getVideoMetaData";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { LLMChain } from "langchain/chains";
-import * as fs from "fs";
 import ResearchAgent from "../../agents/ResearchAgent";
 import {
   ChatPromptTemplate,
   HumanMessagePromptTemplate,
   SystemMessagePromptTemplate,
-  PromptTemplate,
 } from "langchain/prompts";
+
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
 
 // Global Variables
 let chain;
