@@ -10,7 +10,6 @@ import TwoColumnLayout from "../components/TwoColumnLayout";
 import ButtonContainer from "../components/ButtonContainer";
 import "../globals.css";
 
-
 // This functional component is responsible for loading PDFs
 const PDFLoader = () => {
   // Managing prompt, messages, and error states with useState
@@ -61,7 +60,7 @@ const PDFLoader = () => {
         ...prevMessages,
         { text: prompt, type: "user", sourceDocuments: null },
       ]);
-      
+
       // A POST request is sent to the backend with the current prompt in the request body
       const response = await fetch(`/api/${endpoint}`, {
         method: "POST",
@@ -119,8 +118,8 @@ const PDFLoader = () => {
                 endpoint="pdfuploadtest"
                 buttonText="Upload Test Data ☁️"
                 className="Button"
-              /> */}           
-                 <Button
+              /> */}
+              <Button
                 handleSubmit={handleSubmit}
                 endpoint="pdf-upload"
                 buttonText="Upload Book 📚"

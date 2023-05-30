@@ -9,10 +9,7 @@ import ResultWithSources from "../components/ResultWithSources";
 import ButtonContainer from "../components/ButtonContainer";
 import Button from "../components/Button";
 
-// /** Try out both api calls! */
-
-// const endpoint = "/api/resume-query-metadata";
-// const endpoint = "/api/resume_query_vectorstore";
+const endpoint = "/api/resume-query-metadata";
 
 const ResumeReader = () => {
   const [prompt, setPrompt] = useState("Who has experience with Python?");
@@ -67,8 +64,6 @@ const ResumeReader = () => {
 
   const handleSubmit = async () => {
     try {
-      setPrompt("");
-
       // Push the user's message into the messages array
       setMessages((prevMessages) => [
         ...prevMessages,
@@ -104,6 +99,7 @@ const ResumeReader = () => {
           sourceDocuments: searchRes.sourceDocuments,
         },
       ]);
+      setPrompt("");
     } catch (err) {
       console.error(err);
       setError(err);
