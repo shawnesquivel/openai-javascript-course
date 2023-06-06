@@ -6,17 +6,15 @@ import ResultStreaming from "../components/ResultStreaming";
 import Title from "../components/Title";
 import TwoColumnLayout from "app/components/TwoColumnLayout";
 
-
 const Streaming = () => {
   const [prompt, setPrompt] = useState("");
   const [error, setError] = useState(null);
-  const [data, setData] = useState(null)
-//   add code
+  const [data, setData] = useState("");
+  //   add code
 
   const processToken = (token) => {
-
     // add code
-    return 
+    return;
   };
 
   const handlePromptChange = (e) => {
@@ -25,7 +23,7 @@ const Streaming = () => {
 
   const handleSubmit = async () => {
     try {
-        //   add code
+      //   add code
     } catch (err) {
       console.error(err);
       setError(error);
@@ -33,7 +31,7 @@ const Streaming = () => {
   };
 
   // Clean up the EventSource on component unmount
-//   add code
+  //   add code
   return (
     <>
       <Title emoji="💭" headingText="Streaming" />
