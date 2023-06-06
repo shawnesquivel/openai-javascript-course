@@ -73,6 +73,7 @@ const HamburgerMenu = () => {
                       src="/assets/images/pdf.png"
                       alt="robot reading newspaper"
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -94,6 +95,7 @@ const HamburgerMenu = () => {
                       src="/assets/images/brain.png"
                       alt="robot reading newspaper"
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -115,6 +117,7 @@ const HamburgerMenu = () => {
                       src="/assets/images/stream.png"
                       alt="robot reading newspaper"
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -136,6 +139,7 @@ const HamburgerMenu = () => {
                       src="/assets/images/youtube.png"
                       alt="robot reading newspaper"
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -157,6 +161,7 @@ const HamburgerMenu = () => {
                       src="/assets/images/wizard.png"
                       alt="robot reading newspaper"
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -178,6 +183,7 @@ const HamburgerMenu = () => {
                       src="/assets/images/robohr.png"
                       alt="robot reading newspaper"
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>
@@ -199,6 +205,7 @@ const HamburgerMenu = () => {
                       src="/assets/images/tools.png"
                       alt="robot reading newspaper"
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       style={{ objectFit: "cover" }}
                     />
                   </div>

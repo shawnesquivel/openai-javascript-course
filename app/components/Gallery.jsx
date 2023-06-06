@@ -4,7 +4,13 @@ import Image from "next/image";
 const ImageCard = ({ src, alt, title }) => (
   <div className="relative rounded-3xl overflow-hidden h-40 drop-shadow">
     <div className="absolute inset-0">
-      <Image src={src} alt={alt} fill style={{ objectFit: "cover" }} />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        style={{ objectFit: "cover" }}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+      />
     </div>
     <div className="relative z-10 flex flex-col items-end justify-top h-full m-4">
       <h4 className="text-2xl font-bold text-gray-200">{title}</h4>
