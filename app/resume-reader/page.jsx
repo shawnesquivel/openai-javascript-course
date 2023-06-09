@@ -9,14 +9,11 @@ import ResultWithSources from "../components/ResultWithSources";
 import ButtonContainer from "../components/ButtonContainer";
 import Button from "../components/Button";
 
-// /** Try out both api calls! */
+const endpoint = "/api/resume-query-metadata";
 
-// const endpoint = "/api/resume_query_metadata";
-const endpoint = "/api/resume_query_vectorstore";
 const ResumeReader = () => {
-  const [prompt, setPrompt] = useState("Has anyone worked at Meta?");
+  const [prompt, setPrompt] = useState("Who has experience with Python?");
   const [error, setError] = useState(null);
-  const [firstMsg, setFirstMsg] = useState(true);
 
   const [messages, setMessages] = useState([
     {
@@ -67,8 +64,6 @@ const ResumeReader = () => {
 
   const handleSubmit = async () => {
     try {
-      setPrompt("");
-
       // Push the user's message into the messages array
       setMessages((prevMessages) => [
         ...prevMessages,
@@ -81,7 +76,7 @@ const ResumeReader = () => {
         { text: "...", type: "bot", sourceDocuments: null },
       ]);
 
-      const response = await fetch(`/api/resume-query-metadata`, {
+      const response = await fetch(`${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,6 +99,7 @@ const ResumeReader = () => {
           sourceDocuments: searchRes.sourceDocuments,
         },
       ]);
+      setPrompt("");
     } catch (err) {
       console.error(err);
       setError(err);

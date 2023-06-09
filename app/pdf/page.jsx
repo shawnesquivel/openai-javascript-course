@@ -10,7 +10,9 @@ import TwoColumnLayout from "../components/TwoColumnLayout";
 import ButtonContainer from "../components/ButtonContainer";
 import "../globals.css";
 
+// This functional component is responsible for loading PDFs
 const PDFLoader = () => {
+  // Managing prompt, messages, and error states with useState
   const [prompt, setPrompt] = useState("How to get rich?");
   const [messages, setMessages] = useState([
     {
@@ -20,22 +22,26 @@ const PDFLoader = () => {
   ]);
   const [error, setError] = useState("");
 
+  // This function updates the prompt value when the user types in the prompt box
   const handlePromptChange = (e) => {
     setPrompt(e.target.value);
   };
 
+  // This function handles the submission of the form when the user hits 'Enter' or 'Submit'
+  // It sends a GET request to the provided endpoint with the current prompt as the query
   const handleSubmit = async (endpoint) => {
     try {
       console.log(`sending ${prompt}`);
       console.log(`using ${endpoint}`);
 
+      // A GET request is sent to the backend
       const response = await fetch(`/api/${endpoint}`, {
         method: "GET",
       });
 
+      // The response from the backend is parsed as JSON
       const searchRes = await response.json();
       console.log(searchRes);
-      setData(searchRes.text);
       setError(""); // Clear any existing error messages
     } catch (error) {
       console.log(error);
@@ -43,6 +49,8 @@ const PDFLoader = () => {
     }
   };
 
+  // This function handles the submission of the user's prompt when the user hits 'Enter' or 'Submit'
+  // It sends a POST request to the provided endpoint with the current prompt in the request body
   const handleSubmitPrompt = async (endpoint) => {
     try {
       setPrompt("");
@@ -52,6 +60,8 @@ const PDFLoader = () => {
         ...prevMessages,
         { text: prompt, type: "user", sourceDocuments: null },
       ]);
+
+      // A POST request is sent to the backend with the current prompt in the request body
       const response = await fetch(`/api/${endpoint}`, {
         method: "POST",
         headers: {
@@ -60,10 +70,12 @@ const PDFLoader = () => {
         body: JSON.stringify({ input: prompt }),
       });
 
+      // Throw an error if the HTTP status is not OK
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
+      // Parse the response from the backend as JSON
       const searchRes = await response.json();
 
       console.log({ searchRes });
@@ -85,6 +97,7 @@ const PDFLoader = () => {
     }
   };
 
+  // The component returns a two column layout with various child components
   return (
     <>
       <Title emoji="💬" headingText="PDF-GPT" />
@@ -108,7 +121,7 @@ const PDFLoader = () => {
               /> */}
               <Button
                 handleSubmit={handleSubmit}
-                endpoint="pdfupload-book"
+                endpoint="pdf-upload"
                 buttonText="Upload Book 📚"
                 className="Button"
               />
@@ -121,7 +134,7 @@ const PDFLoader = () => {
             <PromptBox
               prompt={prompt}
               handlePromptChange={handlePromptChange}
-              handleSubmit={() => handleSubmitPrompt("/pdfquery")}
+              handleSubmit={() => handleSubmitPrompt("/pdf-query")}
               // handleSubmit={() => handleSubmitQuery("/pdfquery-agent")}
               placeHolderText={"How to get rich?"}
               error={error}

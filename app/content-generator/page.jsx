@@ -3,16 +3,19 @@
 import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import PromptBox from "../components/PromptBox";
-import ChatHistory from "../components/ChatHistory";
 import ResultWithSources from "../components/ResultWithSources";
 import Title from "../components/Title";
 import TwoColumnLayout from "../components/TwoColumnLayout";
-const ENDPOINT = "content-generator";
-// use this for the testing
-// const ENDPOINT = "web-browser";
 
+/**
+ *
+ * Module 5: AI Content Generator
+ *
+ * Use this to create new content from a piece of content!
+ *
+ */
 const ContentGenerator = () => {
-  // const data = await getTranscript("O_9JoimRj8w");
+  // Follw up: Write me a tweet about pedro pascal.
   const [prompt, setPrompt] = useState(
     "https://www.youtube.com/watch?v=O_9JoimRj8w"
   );
@@ -31,8 +34,9 @@ const ContentGenerator = () => {
   const handleTopicChange = (e) => {
     setTopic(e.target.value);
   };
+
+  // Make sure to change the API route
   const handleSubmit = async () => {
-    setPrompt("");
     try {
       // Push the user's message into the messages array
       setMessages((prevMessages) => [
@@ -65,7 +69,7 @@ const ContentGenerator = () => {
         },
       ]);
       setFirstMsg(false);
-
+      setPrompt("");
       setError("");
     } catch (err) {
       console.error(err);
@@ -88,7 +92,12 @@ const ContentGenerator = () => {
         }
         rightChildren={
           <>
-            <ResultWithSources messages={messages} pngFile="wizard" />
+            {/* Added max messages */}
+            <ResultWithSources
+              messages={messages}
+              pngFile="wizard"
+              maxMsgs={3}
+            />
             <PromptBox
               prompt={topic}
               handlePromptChange={handleTopicChange}

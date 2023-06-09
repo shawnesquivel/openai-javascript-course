@@ -6,13 +6,23 @@ import PromptBox from "../components/PromptBox";
 import ResultWithSources from "../components/ResultWithSources";
 import Title from "../components/Title";
 import TwoColumnLayout from "../components/TwoColumnLayout";
-/** Start with the UI.. no need to recreate */
+
+/**
+ *
+ * MODULE 4: YOUTUBE CHATBOT:
+ *
+ * Start with the UI.. no need to recreate!
+ *
+ *  */
 const VideoChat = () => {
+  // We'll set a default YouTube video so we don't have to copy and paste this every time
   const [prompt, setPrompt] = useState(
     "https://www.youtube.com/watch?v=0lJKucu6HJc"
   );
   const [error, setError] = useState(null);
   const [firstMsg, setFirstMsg] = useState(true);
+
+  // And we'll set an initial message as well, to make the UI look a little nicer.
   const [messages, setMessages] = useState([
     {
       text: "Hi there! I'm YT chatbot. Please provide a YouTube video URL and I'll answer any questions you have.",
@@ -23,11 +33,12 @@ const VideoChat = () => {
   const handlePromptChange = (e) => {
     setPrompt(e.target.value);
   };
+
+  // The only differences here will be the "URL" for the api call
+  // And the body will send a prompt as well as a firstMsg, which tells us if its the first message in the chat or not
+  // Because the first message will tell us to create the YouTube Chat bot
   const handleSubmit = async () => {
     try {
-      setFirstMsg(false);
-      setPrompt("");
-
       // Push the user's message into the messages array
       setMessages((prevMessages) => [
         ...prevMessages,
@@ -41,6 +52,7 @@ const VideoChat = () => {
         },
         body: JSON.stringify({ prompt: prompt, firstMsg }),
       });
+
       console.log({ response });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -57,6 +69,8 @@ const VideoChat = () => {
         },
       ]);
 
+      setPrompt("");
+      setFirstMsg(false);
       setError("");
     } catch (err) {
       console.error(err);
