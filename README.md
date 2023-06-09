@@ -9,13 +9,13 @@ To get started, clone this repository and install the dependencies:
 Clone the repository
 
 ```
-git clone SSH key
+git clone https://github.com/shawnesquivel/openai-javascript-course.git
 ```
 
 Navigate to folder
 
 ```
-cd langchain-course
+cd openai-javascript-course
 ```
 
 Install dependencies from package.json
