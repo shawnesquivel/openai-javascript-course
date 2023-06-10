@@ -51,6 +51,12 @@ const ContentGenerator = () => {
         },
         body: JSON.stringify({ prompt: prompt, topic: topic, firstMsg }),
       });
+      if (!response.ok) {
+        console.error(`Error: ${response.status}`); // log the HTTP status code
+        const errorMessage = await response.text(); // get the error message from the response
+        console.error(`Message: ${errorMessage}`); // log the error message
+        throw new Error(errorMessage);
+      }
 
       const searchRes = await response.json();
 
