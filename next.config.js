@@ -10,7 +10,12 @@ const nextConfig = {
 
     return config;
   },
-  // Add env { API_KEY: process.env.API_KEY}
+  env: { OPENAI_API_KEY: process.env.OPENAI_API_KEY },
+  // To fix Reference Error from content-generator: https://github.com/vercel/next.js/issues/40399
+  experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+  },
 };
 
 module.exports = nextConfig;

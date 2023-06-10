@@ -36,5 +36,11 @@
     "@types/react": "18.2.6",
     "express-sse": "^0.5.3",
     "typescript": "5.0.4"
-  }
+  },
+  "browserslist": [
+    "chrome 105",
+    "edge 105",
+    "ios_saf 15.6",
+    "firefox 104"
+  ]
 }
