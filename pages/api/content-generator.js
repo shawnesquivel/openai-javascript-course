@@ -19,18 +19,6 @@ import {
  */
 // /pages/api/transcript_chat.js
 
-import { YoutubeTranscript } from "youtube-transcript";
-import extractVideoId from "../../utils/extractVideoId";
-import getVideoMetaData from "../../utils/getVideoMetaData";
-import { ChatOpenAI } from "langchain/chat_models/openai";
-import { LLMChain } from "langchain/chains";
-import ResearchAgent from "../../agents/ResearchAgent";
-import {
-  ChatPromptTemplate,
-  HumanMessagePromptTemplate,
-  SystemMessagePromptTemplate,
-} from "langchain/prompts";
-
 // Global Variables
 let chain;
 let chatHistory = [];
