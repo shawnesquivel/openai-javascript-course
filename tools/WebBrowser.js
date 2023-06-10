@@ -4,7 +4,7 @@ import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 
 /**
  *
- * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this!
  *
  */
 const WebBrowserTool = () => {
