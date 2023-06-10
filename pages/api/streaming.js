@@ -33,9 +33,17 @@ export default function handler(req, res) {
 
     console.log({ prompt });
     // call frontend to backend
-    chat.call(prompt).then(() => {
-      sse.send(null, "end");
-    });
+    chat
+      .call(prompt)
+      .then(() => {
+        sse.send(null, "end");
+      })
+      .catch((err) => {
+        console.error(err);
+        res
+          .status(500)
+          .json({ error: "An error occurred during the chat call" });
+      });
 
     return res.status(200).json({ result: "Streaming complete" });
   } else if (req.method === "GET") {
