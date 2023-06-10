@@ -47,17 +47,6 @@ const initializeChain = async (initialPrompt, transcript) => {
       new OpenAIEmbeddings()
     );
 
-    // Just to show you, we'll also save the vector store as a file in case you want to retrieve it later.
-    // We'll copy our root directory and save it as a variable
-    const directory = "/Users/shawnesquivel/GitHub/yt-script-generator/";
-    await vectorStore.save(directory);
-    //  it will create some files for us, including a way for us to view the vector store documents which is helpful.
-    // then you can access it like this:
-    const loadedVectorStore = await HNSWLib.load(
-      directory,
-      new OpenAIEmbeddings()
-    );
-
     // The ConversationalRetrievalQA chain builds on RetrievalQAChain to provide a chat history component.
 
     // To create one, you will need a retriever. In the below example, we will create one from a vectorstore, which can be created from embeddings.
