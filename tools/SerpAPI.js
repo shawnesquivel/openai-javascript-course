@@ -19,4 +19,3 @@ const SerpAPITool = () => {
 };
 
 export default SerpAPITool;
-s;
