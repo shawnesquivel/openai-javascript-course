@@ -1,15 +1,29 @@
 import { ChatOpenAI } from "langchain/chat_models/openai";
-import { HumanChatMessage } from "langchain/schema";
+import { HumanChatMessage, SystemChatMessage } from "langchain/schema";
 
-// create instance of chatOpenAI
+/**
+ *
+ * WARNING: THIS IS THE SOLUTION! Please try coding before viewing this.
+ *
+ */
+
+const chat = new ChatOpenAI({ temperature: 0, modelName: "gpt-3.5-turbo" });
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     // Grab the user prompt
-    // console.log(process.env.OPENAI_API_KEY);
-    // console.log(process.env.SERPAPI_API_KEY);
+    const { input } = req.body;
+
+    if (!input) {
+      throw new Error("No input");
+    }
 
     // Enter your code here
+    const response = await chat.call([
+      new HumanChatMessage(`How do I write a for loop in ${input}?`),
+    ]);
+
+    console.log(response);
 
     // Modify output as needed
     return res.status(200).json({ result: response });
