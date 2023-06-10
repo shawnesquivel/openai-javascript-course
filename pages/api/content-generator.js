@@ -51,13 +51,21 @@ const initChain = async (transcript, metadataString, research, topic) => {
       prompt: chatPrompt,
       llm: llm,
     });
+    let response;
 
-    const response = await chain.call({
-      transcript,
-      metadata: metadataString,
-      research,
-      input: question,
-    });
+    try {
+      response = await chain.call({
+        transcript,
+        metadata: metadataString,
+        research,
+        input: question,
+      });
+    } catch (error) {
+      console.error(
+        `An error occurred during the call to chain: ${error.message}`
+      );
+      response = { text: "" }; // Provide an empty response or a default value
+    }
 
     console.log({ response });
 
