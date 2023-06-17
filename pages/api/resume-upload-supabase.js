@@ -12,6 +12,8 @@ import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { CharacterTextSplitter } from "langchain/text_splitter";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { PineconeStore } from "langchain/vectorstores/pinecone";
+import { PineconeClient } from "@pinecone-database/pinecone";
 import { loadSummarizationChain } from "langchain/chains";
 import { OpenAI } from "langchain/llms/openai";
 import { SupabaseVectorStore } from "langchain/vectorstores/supabase";
@@ -101,7 +103,23 @@ export default async function handler(req, res) {
     }
 
     /** Upload the reducedDocs */
-    /** STEP TWO: REPLACE WITH SUPABASE CLIENT INSTEAD OF PINECONE */
+    // PINECONE VERSION
+    // const client = new PineconeClient();
+    // await client.init({
+    //   apiKey: process.env.PINECONE_API_KEY,
+    //   environment: process.env.PINECONE_ENVIRONMENT,
+    // });
+
+    // const pineconeIndex = client.Index(process.env.PINECONE_INDEX);
+
+    // await PineconeStore.fromDocuments(reducedDocs, new OpenAIEmbeddings(), {
+    //   pineconeIndex,
+    // });
+
+    // console.log("Uploaded to Pinecone");
+
+    // SUPABASE VERSION
+    /** STEP TWO: REPLACE WITH SUPABASE CLIENT */
     /** CONNECT TO SUPABASE */
     const privateKey = process.env.SUPABASE_PRIVATE_KEY;
     if (!privateKey) throw new Error(`Expected env var SUPABASE_PRIVATE_KEY`);
@@ -121,6 +139,7 @@ export default async function handler(req, res) {
         queryName: "match_documents",
       }
     );
+
     console.log({ summaries });
     // [{summary: 'gdajkljgadkl'}, {summary: 'gdjaklgkadl'}]
     const summaryStr = JSON.stringify(summaries, null, 2);

@@ -112,6 +112,26 @@ export default async function handler(req, res) {
       pineconeIndex,
     });
 
+    // Alternative: use Supabase instead of Pinecone if you're on waitlist (see this video for explanation: https://www.udemy.com/course/langchain-develop-ai-web-apps-with-javascript-and-langchain/learn/lecture/38362160)
+    // const privateKey = process.env.SUPABASE_PRIVATE_KEY;
+    // if (!privateKey) throw new Error(`Expected env var SUPABASE_PRIVATE_KEY`);
+
+    // const url = process.env.SUPABASE_URL;
+    // if (!url) throw new Error(`Expected env var SUPABASE_URL`);
+
+    // const client = createClient(url, privateKey);
+
+    /** UPLOAD TO SUPABASE */
+    await SupabaseVectorStore.fromDocuments(
+      reducedDocs,
+      new OpenAIEmbeddings(),
+      {
+        client,
+        tableName: "documents",
+        queryName: "match_documents",
+      }
+    );
+
     console.log("Successfully uploaded to DB");
     // Modify output as needed
     return res.status(200).json({
